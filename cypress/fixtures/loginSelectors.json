@@ -1,0 +1,7 @@
+{
+  "LoginButton": "[class='main-btn']",
+  "emailField": "[placeholder = 'Enter your email address']",
+  "SigninButton": "[class='button-1 mt-10 w-100']",
+  "OTPfield": "[placeholder='Paste or type sign in code']",
+  "Verify": "[class='button-1 mt-10 w-100']"
+}
