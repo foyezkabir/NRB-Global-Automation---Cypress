@@ -54,7 +54,7 @@ export class RandomDataGenerator {
 }
 
 // Creating an instance of the RandomDataGenerator class
-const randomData = new RandomDataGenerator();
+const randomData = new RandomDataGenerator()
 
 // Example usage
 // console.log("Random BD Phone Number:", randomData.generateRandomBDPhoneNumber());

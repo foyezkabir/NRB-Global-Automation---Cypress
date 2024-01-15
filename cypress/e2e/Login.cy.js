@@ -5,19 +5,15 @@ describe('Navigate to Menu & Sub-Menus', () => {
 
     const randomDataGenerator = new RandomDataGenerator()
 
+    // Generated random data
+    const randomName = randomDataGenerator.generateRandomName()
+    const randomPhone = randomDataGenerator.generateRandomBDPhoneNumber()
+
     beforeEach('Visit the Landing page', () => {
         cy.visit('/')
     })
 
-    it("Verify Login with valid email and OTP", () => {
-        OnLoginPage.loginTo()
-    })
-
-    it("Verify Login with invalid email and OTP", () => {
-        OnLoginPage.loginTo()
-    })
-
-    it("Verify Login with valid email and invalid OTP", () => {
-        OnLoginPage.loginTo()
+    it.only("Verify Login with valid email and OTP", () => {
+        OnLoginPage.loginTo(randomName, randomPhone)
     })
 })

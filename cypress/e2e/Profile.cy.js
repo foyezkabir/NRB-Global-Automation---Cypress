@@ -3,14 +3,19 @@ import { OnLoginPage } from "../support/Page Objects/Login-Page/login"
 import { NavigateTo } from "../support/Page Objects/Navigation"
 import { OnProfilePage } from "../support/Page Objects/Profile-Page/profile"
 
-describe("Profile", () => {
+describe("Profile Page Testing", () => {
 
     const randomDataGenerator = new RandomDataGenerator()
 
-    beforeEach("visit the Landing page", () => {
+    // Generated random data
+    const randomName = randomDataGenerator.generateRandomName()
+    const randomPhone = randomDataGenerator.generateRandomBDPhoneNumber()
+
+    before("visit the Landing page", () => {
 
         cy.visit('/')
-        OnLoginPage.loginTo()
+        OnLoginPage.loginTo(randomName, randomPhone)
+
     })
 
     it("Verify the user can go to the profile page", () => {
@@ -23,7 +28,7 @@ describe("Profile", () => {
         OnProfilePage.BioInfo()
     })
 
-    it.only("Verify the user can cut the Bio info Modal", () => {
+    it("Verify the user can cut the Bio info Modal", () => {
         NavigateTo.Profile()
         OnProfilePage.CuttingAddBioModal()
     })
@@ -86,5 +91,9 @@ describe("Profile", () => {
     it("Verify the user can Cancel the delete of company", () => {
         NavigateTo.Profile()
         OnProfilePage.DeleteCompanyCancel()
+    })
+
+    after(() => {
+        cy.clearLocalStorage();
     })
 })

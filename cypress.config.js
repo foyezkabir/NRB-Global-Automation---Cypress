@@ -16,8 +16,9 @@ module.exports = defineConfig({
   video: false,
   e2e: {
     baseUrl: 'https://app.nrbcham.org/',
+    testIsolation: false,
     setupNodeEvents(on, config) {
       // implement node event listeners here
-    },
-  },
-});
+    }
+  }
+})

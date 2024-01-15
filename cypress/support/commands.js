@@ -26,7 +26,7 @@
 
 const { MailSlurp } = require('mailslurp-client')
 //This API key can be user only 50 times in a month
-const mailslurp = new MailSlurp({ apiKey: "0a957156b67180fb98adb400930b1dee7487f3a28b942a33589e654c818f7352" });
+const mailslurp = new MailSlurp({ apiKey: "b0bd9669c32cb64d91b39da28682040f95e2019c1ef501dd2a5457acf2f77a39" });
 
 //Create inbox
 Cypress.Commands.add('createInbox', () => {
