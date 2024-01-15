@@ -1,35 +1,37 @@
-import { RandomDataGenerator } from "../support/Page Objects/RandomInputs"
+//import { RandomDataGenerator } from "../support/Page Objects/RandomInputs"
+
+//let data
+let InboxId
+let emailAddress
+let emailBody
+let otpCode
 
 export class loginpage {
-    loginTo() {
+    loginTo(Name, Phone) {
 
-        let data
-        let InboxId
-        let emailAddress
-        let emailBody
-        let otpCode
-
-        cy.fixture('loginSelectors').then(LogSel => {
-            data = LogSel
-        })
+        // before("login", () => {
+        //     cy.fixture('loginSelectors').then(LogSel => {
+        //         data = LogSel
+        //     })
+        // })
 
         //Visit the Landing page
         cy.visit('/')
 
         //Click on the Log in button
-        cy.get(data.LoginButton).eq(1).should('exist').click({ multiple: true, force: true }).wait(1000)
+        cy.get('[class="main-btn"]').eq(1).should('exist').click({ multiple: true, force: true }).wait(1000)
 
         //Installing mailslurp: npm i -D cypress mailslurp-client
         //Provide email in the email field and send OTP
         cy.createInbox().then(inbox => {
             const InboxId = inbox.id
             emailAddress = inbox.emailAddress
-            cy.get(data.emailField).should('exist').type(emailAddress).wait(1000)
+            cy.get('[placeholder="Enter your email address"]').should('exist').type(emailAddress).wait(1000)
             cy.wrap(InboxId).as('InboxId')
         })
 
         //Click Sign in button
-        cy.get(data.SigninButton).should('exist').click().wait(5000)
+        cy.get('[class="button-1 mt-10 w-100"]').should('exist').click().wait(5000)
 
         //OTP Reading
         cy.get('@InboxId').then(inboxId => {
@@ -44,26 +46,29 @@ export class loginpage {
                     cy.log(otpCode)
 
                     // Input the OTP in the field
-                    cy.get(data.OTPfield).should('exist').type(otpCode).wait(1000)
+                    cy.get('[placeholder="Paste or type sign in code"]').should('exist').type(otpCode).wait(1000)
 
                     //Click the OTP verify button
-                    cy.get(data.Verify).should('exist').click().wait(4000)
+                    cy.get('[class="button-1 mt-10 w-100"]').should('exist').click().wait(4000)
                 } else {
                     cy.log('OTP not found in the email body')
                 }
             })
 
-            const randomDataGenerator = new RandomDataGenerator()
+            // const randomDataGenerator = new RandomDataGenerator()
 
-            // Generated random data
-            const randomName = randomDataGenerator.generateRandomName()
-            const randomPhone = randomDataGenerator.generateRandomBDPhoneNumber()
+            // // Generated random data
+            // const randomName = randomDataGenerator.generateRandomName()
+            // const randomPhone = randomDataGenerator.generateRandomBDPhoneNumber()
 
-            cy.get('#name').should('exist').type(randomName).wait(1000)
-            cy.get('.form-control').should('exist').type(randomPhone).wait(1000)
+            cy.get('#name').should('exist').type(Name).wait(1000)
+            cy.get('.form-control').should('exist').type(Phone).wait(1000)
             cy.get('[class="button-1 save-btn"]').should('exist').click()
-            cy.wait(4000)
-            cy.get('[class="modal-close-b"]').wait(2000).click().should('have.class', 'active')
+            cy.wait(10000)
+            cy.get('[class="iconify iconify--system-uicons"]').wait(3000).click()
+
+            //cy.get('[class="modal-close-b"]').as('btn').wait(6000).click()
+            //cy.get('@btn').should('have.class', 'active')
         })
 
     }
