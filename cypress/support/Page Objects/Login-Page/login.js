@@ -1,6 +1,5 @@
 //import { RandomDataGenerator } from "../support/Page Objects/RandomInputs"
 
-//let data
 let InboxId
 let emailAddress
 let emailBody
@@ -9,17 +8,11 @@ let otpCode
 export class loginpage {
     loginTo(Name, Phone) {
 
-        // before("login", () => {
-        //     cy.fixture('loginSelectors').then(LogSel => {
-        //         data = LogSel
-        //     })
-        // })
-
         //Visit the Landing page
         cy.visit('/')
 
         //Click on the Log in button
-        cy.get('[class="main-btn"]').eq(1).should('exist').click({ multiple: true, force: true }).wait(1000)
+        cy.get('[class="right-btn-a login-btn"]').should('exist').click().wait(1000)
 
         //Installing mailslurp: npm i -D cypress mailslurp-client
         //Provide email in the email field and send OTP
@@ -55,20 +48,10 @@ export class loginpage {
                 }
             })
 
-            // const randomDataGenerator = new RandomDataGenerator()
-
-            // // Generated random data
-            // const randomName = randomDataGenerator.generateRandomName()
-            // const randomPhone = randomDataGenerator.generateRandomBDPhoneNumber()
-
             cy.get('#name').should('exist').type(Name).wait(1000)
             cy.get('.form-control').should('exist').type(Phone).wait(1000)
             cy.get('[class="button-1 save-btn"]').should('exist').click()
-            cy.wait(10000)
-            cy.get('[class="iconify iconify--system-uicons"]').wait(3000).click()
-
-            //cy.get('[class="modal-close-b"]').as('btn').wait(6000).click()
-            //cy.get('@btn').should('have.class', 'active')
+            cy.wait(8000)
         })
 
     }

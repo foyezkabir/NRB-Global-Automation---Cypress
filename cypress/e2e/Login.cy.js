@@ -1,7 +1,7 @@
 import { RandomDataGenerator } from "../support/Page Objects/RandomInputs"
 import { OnLoginPage } from "../support/Page Objects/Login-Page/login"
 
-describe('Navigate to Menu & Sub-Menus', () => {
+describe('Loging into the the Website', () => {
 
     const randomDataGenerator = new RandomDataGenerator()
 
