@@ -1,13 +1,14 @@
+/// <reference types="Cypress" />
 export class ProfilePage {
 
     BioInfo() {
-        cy.contains(' Add Bio').click().wait(2000)
+        cy.contains('Add Bio').click().wait(2000)
         cy.get('#bio').type('HELLO, WHY ARE YOU GAY')
         cy.get('[class="button-1 save-btn"]').click().wait(4000)
     }
 
     CuttingAddBioModal() {
-        cy.contains(' Add Bio').click().wait(2000)
+        cy.contains('Add Bio').click().wait(2000)
         cy.get('[class="iconify iconify--system-uicons"]').click().wait(2000)
     }
 
@@ -91,7 +92,6 @@ export class ProfilePage {
         cy.contains('Bangladesh').click().wait(1000)
         cy.get('#react-select-6-placeholder').click({ force: true }).wait(1000)
         cy.contains('Dhaka District').click().wait(1000)
-        //cy.get('#city > .css-13cymwt-control > .css-1wy0on6 > .css-1xc3v61-indicatorContainer').click().wait(3000)
         cy.get('#react-select-7-placeholder').click({ force: true }).wait(3000)
         cy.contains('Faridpur').click({ force: true }).wait(1000)
         cy.get('#street_address').type('street address').wait(1000)
@@ -120,20 +120,29 @@ export class ProfilePage {
         cy.get('[class="button-1 save-btn"]').click().wait(2000)
     }
 
-    AddCompany(n) {
-        cy.get('.create-post add-and-edit-button title-icon').click().wait(4000)
-        cy.get('#name').type('Toto Comapny').wait(1000)
-        cy.get('. css-19bb58m').select(n).wait(1000)
-        cy.get('[placeholder="DD-MM-YYYY"]').type('01-01-1998').wait(1000)
-        cy.get('[name="bio"]').type('Hello Boi').wait(1000)
-        cy.get('[class="button-1 undefined"]').click().wait(3000)
+    CuttingCompanyModal() {
+        cy.get('div.add-and-edit-button > button > .fa-solid').click().wait(4000)
+        cy.get('[class="iconify iconify--system-uicons"]').click().wait(1500)
     }
 
-    EditCompany(N, n) {
+    AddCompany() {
+        cy.get('div.add-and-edit-button > button > .fa-solid').click().wait(4000)
+        cy.get('#name').type('Toto Comapny').wait(1000)
+        cy.get('.css-19bb58m').click().wait(1000)
+        cy.contains('Services').click().wait(1000)
+        cy.get('[placeholder="DD-MM-YYYY"]').type('01-01-1998').wait(1000)
+        cy.get('[name="bio"]').type('Hello Boi').wait(1000)
+        cy.get('[class="button-1 undefined"]').click().wait(5000)
+    }
+
+    EditCompany() {
+        // cy.get('.company-card-box')
+        cy.get('[class="col-lg-12 col-md-12"]').first().invoke("show").click({ force: true })
         cy.get('[class="company-card-box edit-page-open"] [class="fa-solid fa-pen"]').eq(1).click().wait(5000)
         cy.get('#name').clear().type("YoYo comapnay").wait(1000)
-        cy.get('. css-1xc3v61-indicatorContainer').select(N).wait(1000)
-        cy.get('. css-19bb58m').select(n).wait(1000)
+        //cy.get('. css-1xc3v61-indicatorContainer').select(N).wait(1000)
+        cy.get('.css-19bb58m').click().wait(1000)
+        cy.contains('Retail').click().wait(1000)
         cy.get('#email').type('XYZ@example.com').wait(1000)
         cy.get('[name="phone"]').type('1983367056').wait(1000)
         cy.get('[name="other_phone"]').type('1893367056').wait(1000)

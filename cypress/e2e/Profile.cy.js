@@ -22,64 +22,69 @@ describe("Profile Page Testing", () => {
         NavigateTo.Profile()
     })
 
-    it("TC-02: Verify the user can cut the Bio info Modal", () => {
-        OnProfilePage.CuttingAddBioModal()
-    })
+    // it.only("TC-02: Verify the user can cut the Bio info Modal", () => {
+    //     OnProfilePage.CuttingAddBioModal()
+    // })
 
-    it("TC-03: Verify the user can update Bio", () => {
-        OnProfilePage.BioInfo()
-    })
+    // it.only("TC-03: Verify the user can update Bio", () => {
+    //     OnProfilePage.BioInfo()
+    // })
 
-    it("TC-04: Verify the user can update the Bio info", () => {
-        OnProfilePage.UpdateBio()
-    })
+    // it.only("TC-04: Verify the user can update the Bio info", () => {
+    //     OnProfilePage.UpdateBio()
+    // })
 
-    it("TC-05: Verify the user can cut the DOB Modal", () => {
-        OnProfilePage.CuttingDOBModal()
-    })
+    // it.only("TC-05: Verify the user can cut the DOB Modal", () => {
+    //     OnProfilePage.CuttingDOBModal()
+    // })
 
-    it("TC-06: Verify the user can update DOB", () => {
-        OnProfilePage.DOBInfo()
-    })
+    // it.only("TC-06: Verify the user can update DOB", () => {
+    //     OnProfilePage.DOBInfo()
+    // })
 
-    it("TC-07: Verify the user can update the DOB Info", () => {
-        OnProfilePage.UpdateDOBInfo()
-    })
+    // it.only("TC-07: Verify the user can update the DOB Info", () => {
+    //     OnProfilePage.UpdateDOBInfo()
+    // })
 
-    it("TC-08: Verify the user can cut the Contact Modal", () => {
-        OnProfilePage.CuttingContactModal()
-    })
+    // it.only("TC-08: Verify the user can cut the Contact Modal", () => {
+    //     OnProfilePage.CuttingContactModal()
+    // })
 
-    it("TC-09: Verify the user can Update Contact info", () => {
-        OnProfilePage.ContactInfo()
-    })
+    // it.only("TC-09: Verify the user can Update Contact info", () => {
+    //     OnProfilePage.ContactInfo()
+    // })
 
-    it("TC-10: Verify the user can re-update the Contact Modal", () => {
-        OnProfilePage.UpdateContactInfo()
-    })
+    // it.only("TC-10: Verify the user can re-update the Contact Modal", () => {
+    //     OnProfilePage.UpdateContactInfo()
+    // })
 
-    it("TC-11: Verify the user can cut the Social links Modal", () => {
-        OnProfilePage.CuttingSocialModal()
-    })
+    // it.only("TC-11: Verify the user can cut the Social links Modal", () => {
+    //     OnProfilePage.CuttingSocialModal()
+    // })
 
-    it("TC-12: Verify the user can Social links info", () => {
-        OnProfilePage.SocialLinks()
-    })
+    // it.only("TC-12: Verify the user can Social links info", () => {
+    //     OnProfilePage.SocialLinks()
+    // })
 
-    it("TC-13: Verify the user can cut the Social links Modal", () => {
-        OnProfilePage.UpdateSocialLinks()
-    })
+    // it.only("TC-13: Verify the user can cut the Social links Modal", () => {
+    //     OnProfilePage.UpdateSocialLinks()
+    // })
 
-    it("TC-14: Verify the user can cut the Location Modal", () => {
-        OnProfilePage.CuttingLocationModal()
-    })
+    // it.only("TC-14: Verify the user can cut the Location Modal", () => {
+    //     OnProfilePage.CuttingLocationModal()
+    // })
 
-    it("TC-15: Verify the user can update Location", () => {
-        OnProfilePage.LocationInfo()
-    })
+    // it.only("TC-15: Verify the user can update Location", () => {
+    //     OnProfilePage.LocationInfo()
+    // })
 
-    it("TC-16: Verify the user can re-update the Location", () => {
-        OnProfilePage.UpdateLocationInfo()
+    // it.only("TC-16: Verify the user can re-update the Location", () => {
+    //     OnProfilePage.UpdateLocationInfo()
+    // })
+
+
+    it.only("Verify the user can cut the add company modal", () => {
+        OnProfilePage.CuttingCompanyModal()
     })
 
     it.only("Verify the user can Add company", () => {
